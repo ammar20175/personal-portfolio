@@ -20,7 +20,7 @@ export default function About({}: Props) {
 				viewport={{ once: true }}
 				transition={{ duration: 1.2 }}
 				src="https://images.unsplash.com/photo-1588862081167-d5b98006637e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-				className="-mb-20 mt-8 md:mt-0 md:mb-0 flex-shrink-0 w-48 h-48 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
+				className="-mb-20 mt-8 md:mt-0 md:mb-0 flex-shrink-0 w-48 h-48 rounded-full object-cover md:rounded-lg md:w-64 md:h-96  xl:w-[420px] xl:h-[520px]"
 			/>
 
 			<div className="space-y-6 md:space-y-10 px-0 md:px-10">
