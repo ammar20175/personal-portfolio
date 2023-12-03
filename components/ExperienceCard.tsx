@@ -14,7 +14,7 @@ export default function ExperienceCard({}: Props) {
 				src="https://images.unsplash.com/photo-1588862081167-d5b98006637e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 			/>
 
-			<div className="px-0 md:px-10">
+			<div className="px-0 md:px-5 xl:px-10">
 				<h4 className="text-xl md:text-2xl lg:text-4xl font-light">
 					CEO of Microsoft
 				</h4>
