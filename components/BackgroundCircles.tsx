@@ -18,7 +18,7 @@ export default function BackgroundCircles({}: Props) {
 			<div className="absolute border border-[#333333] rounded-full h-[200px] w-[200px] mt-52 animate-ping" />
 			<div className="absolute border border-[#333333] rounded-full h-[350px] w-[350px] mt-52 animate-ping" />
 			<div className="rounded-full border-[#F7AB0A] opacity-20 h-[550px] w-[550px] absolute mt-52 animate-pulse" />
-			<div className="rounded-full border border-[#333333] h-[600px] w-[600px]  md:h-[650px] md:w-[650px] absolute mt-52" />
+			<div className="hidden md:block rounded-full border border-[#333333] h-[600px] w-[600px]  md:h-[650px] md:w-[650px] absolute mt-52" />
 		</motion.div>
 	);
 }
