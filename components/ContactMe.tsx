@@ -25,10 +25,10 @@ export default function ContactMe({}: Props) {
 
 	return (
 		<motion.div
-			initial={{ x: -300, opacity: 0 }}
+			initial={{ x: -200, opacity: 0 }}
 			whileInView={{ x: 0, opacity: 1 }}
 			viewport={{ once: true }}
-			transition={{ duration: 1.2 }}
+			transition={{ duration: 1 }}
 			className="relative h-screen flex flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center"
 		>
 			<h3 className="absolute ml-6 md:ml-0 top-20 uppercase tracking-[20px] text-gray-500 text-2xl">
