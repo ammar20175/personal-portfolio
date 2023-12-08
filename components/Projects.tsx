@@ -21,7 +21,7 @@ export default function Projects({ projects }: Props) {
 			scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80"
 			>
 				{projects.map((project, i) => (
-					<Link key={i} href={project.linkToBuild} target="_blank">
+					<Link key={project._id} href={project.linkToBuild} target="_blank">
 						<div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-10 md:p-20 h-screen">
 							<motion.img
 								initial={{ y: -300, opacity: 0 }}
