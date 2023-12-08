@@ -14,6 +14,7 @@ import { fetchSocial } from "@/utils/fetchSocials";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 
 type Props = {
 	pageInfo: PageInfo;
@@ -65,6 +66,8 @@ export default function Home({
 			<Link href="#hero">
 				<Footer pageInfo={pageInfo} />
 			</Link>
+
+			<Toaster />
 		</div>
 	);
 }

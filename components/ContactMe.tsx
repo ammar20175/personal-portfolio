@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 type Props = {};
 
@@ -17,11 +18,39 @@ export default function ContactMe({}: Props) {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm<Inputs>();
 
-	const onSubmit: SubmitHandler<Inputs> = (formData) => {
-		window.location.href = `mailto:ammar.ahmad6410@gmail.com?subject=${formData.subject}&
-		body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+	const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+		{
+			const id = toast.loading("Sending email...");
+
+			try {
+				const response = await emailjs.send(
+					process.env.NEXT_PUBLIC_MAIL_SERVICE_ID!,
+					process.env.NEXT_PUBLIC_MAIL_TEMPLATE_ID!,
+					{
+						from_name: formData.name,
+						email: formData.email,
+						subject: formData.subject,
+						message: formData.message,
+						reply_to: formData.email,
+					},
+					process.env.NEXT_PUBLIC_MAIL_KEY
+				);
+
+				if (response.status === 200) {
+					toast.success("Email send.", {
+						id: id,
+					});
+					reset();
+				}
+			} catch (err) {
+				toast.error("An error occured while sending the email.", {
+					id: id,
+				});
+			}
+		}
 	};
 
 	return (
@@ -67,13 +96,17 @@ export default function ContactMe({}: Props) {
 						<input
 							{...register("name", { required: true })}
 							placeholder="Name"
-							className={`contactInput flex-grow ${errors.name && "invalidInput"}`}
+							className={`contactInput flex-grow ${
+								errors.name && "invalidInput"
+							}`}
 							type="text"
 						/>
 						<input
 							{...register("email", { required: true })}
 							placeholder="Email"
-							className={`contactInput  flex-grow ${errors.email && "invalidInput"}`}
+							className={`contactInput  flex-grow ${
+								errors.email && "invalidInput"
+							}`}
 							type="email"
 						/>
 					</div>
