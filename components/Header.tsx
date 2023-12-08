@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 
-type Props = {};
+type Props = {
+	socials: Social[];
+};
 
-export default function Header({}: Props) {
+export default function Header({ socials }: Props) {
 	const handleScroll = () => {
 		const heroElement = document.getElementById("contact");
 		heroElement?.scrollIntoView({
@@ -23,23 +25,14 @@ export default function Header({}: Props) {
 				className="flex flex-row items-center"
 			>
 				{/* social icons */}
-				<SocialIcon
-					url="https://www.youtube.com/"
-					fgColor="gray"
-					bgColor="transparent"
-				/>
-
-				<SocialIcon
-					url="https://www.youtube.com/"
-					fgColor="gray"
-					bgColor="transparent"
-				/>
-
-				<SocialIcon
-					url="https://www.youtube.com/"
-					fgColor="gray"
-					bgColor="transparent"
-				/>
+				{socials?.map((social) => (
+					<SocialIcon
+						key={social._id}
+						url={social.url}
+						fgColor="gray"
+						bgColor="transparent"
+					/>
+				))}
 			</motion.div>
 
 			<motion.div

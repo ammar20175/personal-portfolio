@@ -1,16 +1,17 @@
+import { urlFor } from "@/sanity";
 import { motion } from "framer-motion";
 
 type Props = {
-	directionLeft?: boolean;
+	skill: Skill;
 };
 
-export default function Skill({ directionLeft }: Props) {
+export default function Skill({ skill }: Props) {
 	return (
 		<div className="group relative flex cursor-pointer">
 			<img
-				className="rounded-full border border-gray-500 object-ontain w-16 h-16 md:w-20 md:h-20 xl:w-24 xl:h-24 filter
+				className="rounded-full border border-gray-500 object-contain w-16 h-16 md:w-20 md:h-20 xl:w-24 xl:h-24 filter
                 group-hover:grayscale transition duration-300 ease-in-out"
-				src="https://logowik.com/content/uploads/images/firebase.jpg"
+				src={urlFor(skill.image).url()}
 			/>
 
 			<div
@@ -19,7 +20,7 @@ export default function Skill({ directionLeft }: Props) {
 			>
 				<div className="flex items-center justify-center h-full">
 					<p className="text-xs  md:text-xl xl:text-3xl font-bold text-black opacity-100">
-						100%
+						{skill.progress}%
 					</p>
 				</div>
 			</div>

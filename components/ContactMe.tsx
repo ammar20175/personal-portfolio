@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 type Props = {};
 
@@ -44,7 +45,7 @@ export default function ContactMe({}: Props) {
 				<div className="space-y-3 md:space-y-7 text-sm md:text-lg">
 					<div className="flex items-center justify-center space-x-5 ">
 						<PhoneIcon className="text-[#F7AB0A] h-4 w-4 md:h-7 md:w-7 animate-pulse  flex-shrink-0" />
-						<p>+123456789</p>
+						<p>+971 058 626 0513</p>
 					</div>
 
 					<div className="flex items-center justify-center space-x-5 ">

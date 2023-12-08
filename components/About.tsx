@@ -1,8 +1,11 @@
+import { urlFor } from "@/sanity";
 import { motion } from "framer-motion";
 
-type Props = {};
+type Props = {
+	pageInfo: PageInfo;
+};
 
-export default function About({}: Props) {
+export default function About({ pageInfo }: Props) {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -19,7 +22,7 @@ export default function About({}: Props) {
 				whileInView={{ x: 0, opacity: 1 }}
 				viewport={{ once: true }}
 				transition={{ duration: 1.2 }}
-				src="https://images.unsplash.com/photo-1588862081167-d5b98006637e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				src={urlFor(pageInfo?.profilePic).url()}
 				className="-mb-20 mt-8 md:mt-0 md:mb-0 flex-shrink-0 w-48 h-48 rounded-full object-cover md:rounded-lg md:w-64 md:h-96  xl:w-[420px] xl:h-[520px]"
 			/>
 
@@ -31,19 +34,7 @@ export default function About({}: Props) {
 				</h4>
 
 				<p className="text-xs md:text-sm lg:text-lg">
-					I am a versatile and passionate Computer Systems Engineer with a
-					strong background in full-stack development, specializing in ReactJS,
-					NextJS, and NodeJS. My expertise extends to a variety of programming
-					languages, including JavaScript, C++, C, and Java. With a profound
-					understanding of hardware programming and signal processing, I bring a
-					unique perspective to the field. Currently working as a Full Stack
-					Developer, I thrive on crafting seamless and efficient solutions that
-					span the entire software development lifecycle. My proficiency in
-					backend engineering is a testament to my commitment to building
-					robust, scalable, and secure applications. Navigating the complexities
-					of both frontend and backend technologies, I have successfully
-					developed and deployed projects that meet and exceed client
-					expectations.
+					{pageInfo?.backgroundInformation}
 				</p>
 			</div>
 		</motion.div>
