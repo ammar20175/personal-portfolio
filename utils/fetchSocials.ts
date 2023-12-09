@@ -1,9 +1,12 @@
-export const fetchSocial = async () => {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSocials`);
+import { sanityClient } from "@/sanity";
+import { groq } from "next-sanity";
 
-	const data = await res.json();
-
-	const socials = data.socials;
-
+const query = groq`
+    *[_type == "social"]
+`;
+const fetchSocials = async () => {
+	const socials: Social[] = await sanityClient.fetch(query);
 	return socials;
 };
+
+export default fetchSocials;

@@ -1,9 +1,13 @@
-export const fetchSkills = async () => {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSkills`);
+import { sanityClient } from "@/sanity";
+import { groq } from "next-sanity";
 
-	const data = await res.json();
+const query = groq`
+    *[_type == "skill"] | order(_createdAt desc)
+`;
 
-	const skills: Skill[] = data.skills;
-
+const fetchSkills = async () => {
+	const skills: Skill[] = await sanityClient.fetch(query);
 	return skills;
 };
+
+export default fetchSkills;

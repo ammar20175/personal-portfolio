@@ -1,11 +1,13 @@
-export const fetchPageInfo = async () => {
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/api/getPageInfo`
-	);
+import { sanityClient } from "@/sanity";
+import { groq } from "next-sanity";
 
-	const data = await res.json();
+const query = groq`
+    *[_type == "pageInfo"][0]
+`;
 
-	const pageInfo: PageInfo = data.pageInfo;
-
+const fetchPageInfo = async () => {
+	const pageInfo: PageInfo = await sanityClient.fetch(query);
 	return pageInfo;
 };
+
+export default fetchPageInfo;

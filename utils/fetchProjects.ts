@@ -1,11 +1,16 @@
-export const fetchProjects = async () => {
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/api/getProjects`
-	);
+import { sanityClient } from "@/sanity";
+import { groq } from "next-sanity";
 
-	const data = await res.json();
+const query = groq`
+    *[_type == "project"] | order(_createdAt desc) {
+        ...,
+        technologies[]->
+    }
+`;
 
-	const projects: Project[] = data.projects;
-
+const fetchProjects = async () => {
+	const projects: Project[] = await sanityClient.fetch(query);
 	return projects;
 };
+
+export default fetchProjects;
