@@ -7,18 +7,18 @@ type Props = {
 
 export default function ExperienceCard({ experience }: Props) {
 	return (
-		<article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] md:w-[450px] xl:w-[550px] snap-center bg-[#292929] p-10 opacity-40 hover:opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden">
+		<article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] md:w-[600px] lg:w-[650px] xl:w-[700px] snap-center bg-[#292929] p-10 opacity-40 hover:opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden">
 			<motion.img
 				initial={{ y: -100, opacity: 0 }}
 				transition={{ duration: 1.2 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
-				className="w-16 h-16 md:w-20 md:h-20 xl:w-24 xl:h-24 2xl:w-[130px] 2xl:h-[130px] rounded-full object-cover object-center"
+				className="w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-[130px] 2xl:h-[130px] rounded-full object-cover object-center"
 				src={urlFor(experience?.companyImage).url()}
 			/>
 
-			<div className="px-0 md:px-5 xl:px-10">
-				<h4 className="text-xl md:text-2xl xl:text-3xl 2xl:text-4xl font-light">
+			<div className="xl:px-10">
+				<h4 className="text-xl md:text-2xl 2xl:text-4xl font-light">
 					{experience?.jobTitle}
 				</h4>
 
@@ -30,13 +30,13 @@ export default function ExperienceCard({ experience }: Props) {
 					{experience.technologies.map((technology, i) => (
 						<img
 							key={i}
-							className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 rounded-full"
+							className="h-8 w-8 lg:h-12 lg:w-12 rounded-full"
 							src={urlFor(technology.image).url()}
 						/>
 					))}
 				</div>
 
-				<p className="uppercase py-2 text-gray-300">
+				<p className="uppercase text-xs md:text-base py-2 text-gray-300">
 					{new Date(experience.dateStarted).toLocaleDateString("en-US", {
 						year: "numeric",
 						month: "short",
@@ -50,7 +50,7 @@ export default function ExperienceCard({ experience }: Props) {
 						  })}
 				</p>
 
-				<ul className="list-disc space-y-2 md:space-y-4 ml-5 text-xs md:text-base">
+				<ul className="list-disc space-y-2 lg:space-y-4 ml-5 text-xs md:text-base">
 					{experience?.points.map((point, i) => (
 						<li key={i}>{point}</li>
 					))}

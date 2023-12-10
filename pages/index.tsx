@@ -1,6 +1,5 @@
 import About from "@/components/About";
 import ContactMe from "@/components/ContactMe";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -60,12 +59,8 @@ export default function Home({
 			</section>
 
 			<section id="contact" className="snap-start">
-				<ContactMe />
+				<ContactMe pageInfo={pageInfo} />
 			</section>
-
-			<Link href="#hero">
-				<Footer pageInfo={pageInfo} />
-			</Link>
 
 			<Toaster />
 		</div>

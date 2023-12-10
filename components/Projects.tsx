@@ -22,18 +22,18 @@ export default function Projects({ projects }: Props) {
 			>
 				{projects.map((project, i) => (
 					<Link key={project._id} href={project.linkToBuild} target="_blank">
-						<div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-10 md:p-20 h-screen">
+						<div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 md:space-y-10 items-center justify-center p-10 md:p-20 h-screen">
 							<motion.img
 								initial={{ y: -300, opacity: 0 }}
 								transition={{ duration: 1.2 }}
 								whileInView={{ y: 0, opacity: 1 }}
 								viewport={{ once: true }}
-								className="w-[300px] h-[170px] md:w-[400px] md:h-[250px]"
+								className="w-[300px] h-[170px] md:w-[350px] lg:w-[410px] lg:h-[190px] 2xl:w-[400px] 2xl:h-[250px]"
 								src={urlFor(project.image).url()}
 							/>
 
-							<div className="space-y-5 md:space-y-10 px-0 md:px-10 max-w-6xl">
-								<h4 className="md:text-2xl xl:text-4xl font-semibold text-center">
+							<div className="space-y-6 2xl:space-y-10 px-0 md:px-10 max-w-6xl">
+								<h4 className="md:text-xl lg:text-2xl 2xl:text-4xl font-semibold text-center">
 									<span className="underline decoration-[#F7AB0A]/50">
 										Case Study {i + 1} of {projects.length} :
 									</span>{" "}
@@ -43,13 +43,13 @@ export default function Projects({ projects }: Props) {
 								<div className="flex items-center justify-center space-x-4">
 									{project.technologies.map((technology) => (
 										<img
-											className="h-10 w-10"
+											className="w-6 h-6 lg:h-10 lg:w-10"
 											key={technology._id}
 											src={urlFor(technology.image).url()}
 										/>
 									))}
 								</div>
-								<p className="text-xs md:text-sm xl:text-lg text-center md:text-left">
+								<p className="text-xs md:text-base lg:text-base xl:text-lg text-center md:text-left">
 									{project.summary}
 								</p>
 							</div>

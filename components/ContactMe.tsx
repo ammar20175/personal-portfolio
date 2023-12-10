@@ -4,7 +4,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 
-type Props = {};
+type Props = {
+	pageInfo: PageInfo;
+};
 
 type Inputs = {
 	name: string;
@@ -13,7 +15,7 @@ type Inputs = {
 	message: string;
 };
 
-export default function ContactMe({}: Props) {
+export default function ContactMe({ pageInfo }: Props) {
 	const {
 		register,
 		handleSubmit,
@@ -65,26 +67,26 @@ export default function ContactMe({}: Props) {
 				Contact
 			</h3>
 
-			<div className="flex flex-col space-y-5 md:space-y-10 mt-14 md:mt-0">
-				<h4 className="text-xl md:text-4xl font-semibold text-center">
+			<div className="flex flex-col space-y-5 xl:space-y-10 mt-14 xl:mt-0">
+				<h4 className="text-xl md:text-2xl xl:text-4xl font-semibold text-center">
 					I have got just what you need.{" "}
 					<span className="underline decoration-[#F7AB0A]">Lets Talk.</span>
 				</h4>
 
-				<div className="space-y-3 md:space-y-7 text-sm md:text-lg">
+				<div className="space-y-3 xl:space-y-7 text-sm md:text-base xl:text-lg">
 					<div className="flex items-center justify-center space-x-5 ">
-						<PhoneIcon className="text-[#F7AB0A] h-4 w-4 md:h-7 md:w-7 animate-pulse  flex-shrink-0" />
-						<p>+971 058 626 0513</p>
+						<PhoneIcon className="text-[#F7AB0A] h-4 w-4 md:h-5 md:w-5 xl:h-7 xl:w-7 animate-pulse  flex-shrink-0" />
+						<p>{pageInfo.phoneNumber}</p>
 					</div>
 
 					<div className="flex items-center justify-center space-x-5 ">
-						<EnvelopeIcon className="text-[#F7AB0A] h-4 w-4 md:h-7 md:w-7 animate-pulse flex-shrink-0" />
-						<p>ammar.ahmad6410@gmail.com</p>
+						<EnvelopeIcon className="text-[#F7AB0A] h-4 w-4 md:h-5 md:w-5 xl:h-7 xl:w-7 animate-pulse flex-shrink-0" />
+						<p>{pageInfo.email}</p>
 					</div>
 
 					<div className="flex items-center justify-center space-x-5 ">
-						<MapPinIcon className="text-[#F7AB0A] h-4 w-4 md:h-7 md:w-7 animate-pulse flex-shrink-0" />
-						<p>123 Dubai street this is dummy address not a real one</p>
+						<MapPinIcon className="text-[#F7AB0A] h-4 w-4 md:h-5 md:w-5 xl:h-7 xl:w-7 animate-pulse flex-shrink-0" />
+						<p>{pageInfo.address}</p>
 					</div>
 				</div>
 
@@ -125,7 +127,7 @@ export default function ContactMe({}: Props) {
 
 					<button
 						type="submit"
-						className="bg-[#F7AB0A] py-3 md:py-5 px-10 rounded-md text-black font-bold text-lg"
+						className="bg-[#F7AB0A] py-3 lg:py-5 px-10 rounded-md text-black font-bold md:text-lg xl:text-xl"
 					>
 						Submit
 					</button>
